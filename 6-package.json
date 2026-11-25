@@ -1,0 +1,12 @@
+{
+  "name": "harf-arabic",
+  "version": "1.0.0",
+  "description": "Zero-dependency Arabic text toolkit: normalize, diacritics, digits, number to words, transliteration, Arabizi, search, light stemmer.",
+  "main": "harf.js",
+  "files": ["harf.js"],
+  "scripts": { "test": "node --test harf.test.js" },
+  "keywords": ["arabic", "nlp", "text", "normalize", "diacritics", "transliteration", "arabizi", "rtl"],
+  "license": "MIT",
+  "author": "Mostafa Omran",
+  "repository": { "type": "git", "url": "git+https://github.com/mostaaafaomran-ctrl/harf.git" }
+}

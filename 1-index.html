@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harf | حرف</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wordmark"><span class="big">حرف</span><span class="latin">harf</span></div>
+  <div class="hbtns">
+    <a class="gh" href="https://github.com/mostaaafaomran-ctrl/harf" target="_blank" rel="noopener">GitHub</a>
+    <button id="langBtn" type="button">English</button>
+  </div>
+</header>
+<main>
+  <section class="intro">
+    <h1 data-i="h1"></h1>
+    <p data-i="sub"></p>
+    <code class="install">npm i harf-arabic</code>
+  </section>
+
+  <nav id="tabs"></nav>
+
+  <section class="card">
+    <label class="lbl" data-i="input"></label>
+    <textarea id="inp" rows="4"></textarea>
+    <div id="opts" class="opts"></div>
+    <label class="lbl" data-i="output"></label>
+    <div id="out" class="out"></div>
+    <div class="actions"><button id="copy" type="button" data-i="copy"></button><button id="sample" type="button" data-i="sample"></button></div>
+  </section>
+
+  <section class="card code">
+    <label class="lbl" data-i="usage"></label>
+    <pre dir="ltr" id="snippet"></pre>
+  </section>
+</main>
+<footer data-i="foot"></footer>
+<script src="harf.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

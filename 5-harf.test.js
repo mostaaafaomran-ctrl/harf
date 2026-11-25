@@ -1,0 +1,21 @@
+const test = require('node:test'), assert = require('node:assert/strict');
+const H = require('./harf.js');
+test('diacritics', () => assert.equal(H.stripDiacritics('مُحَمَّدٌ'), 'محمد'));
+test('tatweel', () => assert.equal(H.removeTatweel('اللـــه'), 'الله'));
+test('normalize', () => assert.equal(H.normalize('أَحْمَد  إلى مصر'), 'احمد الي مصر'));
+test('digits', () => { assert.equal(H.toArabicIndic('2026'), '٢٠٢٦'); assert.equal(H.toWesternDigits('٢٠٢٦ ۱۲'), '2026 12'); });
+test('direction', () => { assert.equal(H.direction('مرحبا hello'), 'rtl'); assert.equal(H.direction('hi مرحبا'), 'ltr'); assert.equal(H.direction('123'), 'neutral'); });
+test('numbers', () => {
+  assert.equal(H.numberToWords(0), 'صفر');
+  assert.equal(H.numberToWords(21), 'واحد وعشرون');
+  assert.equal(H.numberToWords(200), 'مائتان');
+  assert.equal(H.numberToWords(2000), 'ألفان');
+  assert.equal(H.numberToWords(5000), 'خمسة آلاف');
+  assert.equal(H.numberToWords(1234), 'ألف ومائتان وأربعة وثلاثون');
+  assert.equal(H.numberToWords(-3), 'سالب ثلاثة');
+  assert.throws(() => H.numberToWords(1.5));
+});
+test('translit', () => { assert.equal(H.transliterate('محمد'), 'mhmd'); assert.equal(H.slugify('مرحبا بالعالم'), 'mrhba-balalm'); });
+test('arabizi', () => { assert.equal(H.fromArabizi('7abibi'), 'حبيبي'); assert.equal(H.fromArabizi('3arabi'), 'عربي'); });
+test('stem+matches', () => { assert.equal(H.stem('المدرسة'), 'مدرس'); assert.ok(H.matches('ذهبت إلى المدرسة', 'مدرسه')); assert.ok(H.matches('المعلمون في المدرسة', 'معلم', { stem: true })); });
+test('stats', () => assert.equal(H.stats('مرحبا بالعالم').words, 2));
